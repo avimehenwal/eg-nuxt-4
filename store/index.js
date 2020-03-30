@@ -1,3 +1,5 @@
+const Cookie = process.client ? require('js-cookie') : undefined
+
 export const state = () => ({
   counter: 0,
   access_token: null
@@ -20,7 +22,6 @@ export const actions = {
     context.commit('clearToken')
   },
   setToken (context) {
-    const Cookie = process.client ? require('js-cookie') : undefined
     const payload = Cookie.get('auth._token.google')
     context.commit('clearToken')
     context.commit('setToken', payload)
