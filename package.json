@@ -20,6 +20,7 @@
     "js-cookie": "^2.2.1",
     "net": "^1.0.2",
     "nuxt": "^2.0.0",
+    "querystring": "^0.2.0",
     "tls": "0.0.1"
   },
   "devDependencies": {
