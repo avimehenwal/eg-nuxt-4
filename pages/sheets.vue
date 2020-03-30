@@ -32,10 +32,10 @@ export default {
     sheet () {
       Cookie.set('foo', 'bar')
       this.token = Cookie.get('auth._token.google')
-      // this.$axios.setToken(this.token)
-      // this.$axios.get(url)
-      //   .then(response => (this.data = response.data.values))
-      // const drive = 'https://www.googleapis.com/drive/v3/about?fields=*'
+      this.$axios.setToken(this.token)
+      this.$axios.get(url)
+        .then(response => (this.data = response.data.values))
+      const drive = 'https://www.googleapis.com/drive/v3/about?fields=*'
       const driveParams = {
         fields: '*'
       }
