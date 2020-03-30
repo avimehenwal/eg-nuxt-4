@@ -50,8 +50,8 @@ export default {
   auth: {
     strategies: {
       google: {
-        client_id: '925654873761-6bche222q62scqv95lbcsat4hllp3a7s.apps.googleusercontent.com',
-        scope: ['openid', 'profile', 'email', 'https://www.googleapis.com/auth/spreadsheets']
+        client_id: '925654873761-6bche222q62scqv95lbcsat4hllp3a7s.apps.googleusercontent.com'
+        // scope: ['openid', 'profile', 'email', 'https://www.googleapis.com/auth/spreadsheets']
       }
     }
   },
