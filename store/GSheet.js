@@ -20,14 +20,14 @@ export const mutations = {
 
 export const actions = {
   fetch (context) {
-    console.log(context.rootState.counter)
-    console.log(Cookie.get('auth._token.google'))
-    console.log(context.rootState.access_token)
-    console.log(context.getters.url)
+    // console.log(context.rootState.counter)
+    // console.log(Cookie.get('auth._token.google'))
+    // console.log(context.rootState.access_token)
+    // console.log(context.getters.url)
     this.$axios.setToken(Cookie.get('auth._token.google'))
     this.$axios.get(context.getters.url)
       .then(response => (context.commit('setData', response.data.values)))
-    console.log(context.getters.data)
+    // console.log(context.getters.data)
     // const drive = 'https://www.googleapis.com/drive/v3/about?fields=*'
     // const driveParams = {
     //   fields: '*'

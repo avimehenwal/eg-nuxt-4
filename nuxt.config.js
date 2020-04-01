@@ -50,7 +50,7 @@ export default {
   auth: {
     strategies: {
       google: {
-        client_id: '925654873761-6bche222q62scqv95lbcsat4hllp3a7s.apps.googleusercontent.com',
+        client_id: '925654873761-ah4ilqe7nr30je4oag462hrhnadrbrmj.apps.googleusercontent.com',
         scope: [
           'openid',
           'profile',

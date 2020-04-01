@@ -120,6 +120,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Sheet',
           to: '/sheets'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Drive',
+          to: '/drive'
         }
       ],
       miniVariant: false,
