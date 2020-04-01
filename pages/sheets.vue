@@ -1,11 +1,8 @@
 <template>
   <v-container>
     <h1>Sheets</h1>
-    <!-- {{ sheetURL }} -->
-    <!-- {{ $store.state.googleSheets.endpoint }} -->
     {{ sheetURL }}
-    {{ this.$store.getters['googleSheets/doneTodos'] }}
-    <!-- {{ getURL }} -->
+    {{ this.$store.state.GSheet.data}}
     <v-card tile>
       <!-- <v-btn @click="sheet">get sheet </v-btn> -->
       <!-- <v-list-item> {{ token }} </v-list-item> -->
@@ -30,14 +27,20 @@ export default {
   data () {
     return {
       token: null,
-      data: null,
       driveData: null,
-      sheetURL: this.$store.getters['googleSheets/doneTodos']
+      sheetURL: this.$store.getters['GSheet/url'],
+      data: this.$store.state.GSheet.data
     }
+  },
+  mounted () {
+    this.$store.dispatch('GSheet/fetch')
+    // console.log('GSheet Data')
+    // console.log(this.$store.state.GSheet.data)
+    // debugger
   },
   // computed: {
   //   getURL () {
-  //     return this.$store.googleSheets.dispatch('url')
+  //     return this.$store.GSheet.dispatch('url')
   //   }
   // },
   methods: {
