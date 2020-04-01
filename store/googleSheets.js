@@ -10,6 +10,19 @@ export const mutations = {
 }
 
 export const actions = {
+  fetch (context) {
+    // this.$axios.setToken(this.token)
+    //   this.$axios.get(url)
+    //     .then(response => (this.data = response.data.values))
+    //   const drive = 'https://www.googleapis.com/drive/v3/about?fields=*'
+    //   const driveParams = {
+    //     fields: '*'
+    //   }
+    //   const drive = 'https://www.googleapis.com/drive/v3/about'
+    //   this.$axios.setToken(this.token)
+    //   this.$axios.get(drive, { params: driveParams })
+    //     .then(response => (this.driveData = response.data))
+  }
 }
 
 export const getters = {

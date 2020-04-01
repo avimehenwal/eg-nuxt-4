@@ -7,7 +7,7 @@
     {{ this.$store.getters['googleSheets/doneTodos'] }}
     <!-- {{ getURL }} -->
     <v-card tile>
-      <v-btn @click="sheet">get sheet </v-btn>
+      <!-- <v-btn @click="sheet">get sheet </v-btn> -->
       <!-- <v-list-item> {{ token }} </v-list-item> -->
       <v-list-item v-for="item in data" :key="item">
         <v-list-item-content>
@@ -44,17 +44,17 @@ export default {
     sheet () {
       Cookie.set('foo', 'bar')
       this.token = Cookie.get('auth._token.google')
-      // this.$axios.setToken(this.token)
+      this.$axios.setToken(this.token)
       // this.$axios.get(url)
-      //   .then(response => (this.data = response.data.values))
+        .then(response => (this.data = response.data.values))
       // const drive = 'https://www.googleapis.com/drive/v3/about?fields=*'
-      // const driveParams = {
-      //   fields: '*'
-      // }
-      // const drive = 'https://www.googleapis.com/drive/v3/about'
-      // this.$axios.setToken(this.token)
-      // this.$axios.get(drive, { params: driveParams })
-      //   .then(response => (this.driveData = response.data))
+      const driveParams = {
+        fields: '*'
+      }
+      const drive = 'https://www.googleapis.com/drive/v3/about'
+      this.$axios.setToken(this.token)
+      this.$axios.get(drive, { params: driveParams })
+        .then(response => (this.driveData = response.data))
     }
   }
 }

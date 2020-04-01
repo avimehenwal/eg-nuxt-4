@@ -130,10 +130,10 @@ export default {
   },
   methods: {
     login () {
-      this.$auth.loginWith('google')
+      this.$store.dispatch('login')
     },
     logout () {
-      this.$auth.logout('google')
+      this.$store.dispatch('logout')
     }
   }
 }
