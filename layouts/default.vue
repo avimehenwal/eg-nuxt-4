@@ -120,6 +120,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Sheet',
           to: '/sheets'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Drive',
+          to: '/drive'
         }
       ],
       miniVariant: false,
@@ -130,10 +135,10 @@ export default {
   },
   methods: {
     login () {
-      this.$auth.loginWith('google')
+      this.$store.dispatch('login')
     },
     logout () {
-      this.$auth.logout('google')
+      this.$store.dispatch('logout')
     }
   }
 }

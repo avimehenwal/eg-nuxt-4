@@ -1,3 +1,6 @@
+// const Cookie = process.client ? require('js-cookie') : undefined
+import Cookie from 'js-cookie'
+
 export const state = () => ({
   counter: 0,
   access_token: null
@@ -19,10 +22,19 @@ export const actions = {
   clearToken (context) {
     context.commit('clearToken')
   },
-  setToken (context) {
-    const Cookie = process.client ? require('js-cookie') : undefined
-    const payload = Cookie.get('auth._token.google')
+  login (context) {
+    // context.commit('clearToken')
+    this.$auth.loginWith('google')
+    context.commit('increment')
+    context.dispatch('setToken')
+  },
+  logout (context) {
+    context.commit('increment')
     context.commit('clearToken')
-    context.commit('setToken', payload)
+    this.$auth.logout('google')
+  },
+  setToken (context) {
+    // console.log(Cookie.get('auth._token.google'))
+    context.commit('setToken', Cookie.get('auth._token.google'))
   }
 }
