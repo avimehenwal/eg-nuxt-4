@@ -50,8 +50,16 @@
       </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
-      <v-btn text @click="login">login</v-btn>
-      <v-btn text @click="logout">logout</v-btn>
+
+      <span v-if="this.$auth.loggedIn">
+        <!-- <div> -->
+          <v-btn v-if="this.$auth.loggedIn" text @click="logout">logout</v-btn>
+        <!-- </div> -->
+        <!-- <div> {{ this.$auth.user.name }} </div> -->
+        <small>{{ this.$auth.user.email }}</small>
+        <v-avatar> <v-img :src="this.$auth.user.picture"></v-img> </v-avatar>
+      </span>
+      <v-btn v-else text @click="login">login</v-btn>
       <v-btn
         icon
         @click.stop="rightDrawer = !rightDrawer"
@@ -112,6 +120,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Sheet',
           to: '/sheets'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Drive',
+          to: '/drive'
         }
       ],
       miniVariant: false,
@@ -122,10 +135,10 @@ export default {
   },
   methods: {
     login () {
-      this.$auth.loginWith('google')
+      this.$store.dispatch('login')
     },
     logout () {
-      this.$auth.logout('google')
+      this.$store.dispatch('logout')
     }
   }
 }
